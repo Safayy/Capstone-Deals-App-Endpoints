@@ -5,6 +5,7 @@ import cors from "cors"; // CORS module for handling cross-origin requests (impo
 import { v2 as cloudinary } from "cloudinary"; // Cloudinary for image upload and management
 import multer from "multer"; // Multer for handling multipart/form-data, used for file uploads
 import dotenv from "dotenv"; // Dotenv for loading environment variables from a .env file
+import serverless from 'serverless-http';
 dotenv.config(); // Dotenv module for loading environment variables from a .env file
 
 // Initialise the express app
@@ -1420,6 +1421,4 @@ app.get("/", (req, res) => {
 });
 // ----------- TELLS EXPRESS TO START THE SERVER AND LISTEN FOR REQUESTS -----------
 
-app.listen(3000, () => {
-  console.log("App is listening on port 3000");
-});
+export default serverless(app);
